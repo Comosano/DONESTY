@@ -1,0 +1,18 @@
+import { web3Accounts, web3Enable, web3FromAddress } from '@polkadot/extension-dapp';
+
+export class TalismanManager {
+    async connectWallet() {
+        const extensions = await web3Enable('DONESTY');
+        if (extensions.length === 0) {
+            throw new Error("Talisman o Polkadot{.js} extension no encontrada");
+        }
+        const allAccounts = await web3Accounts();
+        return allAccounts;
+    }
+
+    async signAndSendTransaction(account: string, transaction: any) {
+        const injector = await web3FromAddress(account);
+        // Esta es una implementación genérica. Lego se implementaran ajustes específicos para Donesty
+        return transaction.signAndSend(account, { signer: injector.signer });
+    }
+}

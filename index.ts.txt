@@ -1,0 +1,30 @@
+import { ApiPromise, WsProvider } from '@polkadot/api';
+import { web3Accounts, web3Enable } from '@polkadot/extension-dapp';
+
+async function main() {
+    // Conectar a un nodo de Polkadot
+    const wsProvider = new WsProvider('wss://rpc.polkadot.io');
+    const api = await ApiPromise.create({ provider: wsProvider });
+
+    // Habilitar la extensión de Polkadot.js
+    const extensions = await web3Enable('DONESTY');
+
+    if (extensions.length === 0) {
+        console.log('No se encontró la extensión de Polkadot.js');
+        return;
+    }
+
+    // Obtener cuentas
+    const allAccounts = await web3Accounts();
+
+    console.log('Cuentas disponibles:', allAccounts);
+
+    // Aquí iría la lógica principal de la aplicación
+    // Por ejemplo, interactuar con smart contracts en Moonbeam,
+    // gestionar staking líquido con Bifrost, etc.
+
+    // Cerrar la conexión
+    await api.disconnect();
+}
+
+main().catch(console.error);

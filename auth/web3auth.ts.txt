@@ -1,0 +1,34 @@
+import { Web3Auth } from "@web3auth/modal";
+import { CHAIN_NAMESPACES } from "@web3auth/base";
+
+export class Web3AuthManager {
+    private web3auth: Web3Auth | null = null;
+
+    async init() {
+        this.web3auth = new Web3Auth({
+            clientId: "YOUR_WEB3AUTH_CLIENT_ID", // en el dashboard de Web3Auth
+            chainConfig: {
+                chainNamespace: CHAIN_NAMESPACES.EIP155,
+                chainId: "0x13881", // Este es para Mumbai Testnet
+                rpcTarget: "https://rpc-mumbai.maticvigil.com",
+            },
+        });
+
+        await this.web3auth.initModal();
+    }
+
+    async login() {
+        if (!this.web3auth) {
+            throw new Error("Web3Auth no inicializado");
+        }
+        const provider = await this.web3auth.connect();
+        return provider;
+    }
+
+    async logout() {
+        if (!this.web3auth) {
+            throw new Error("Web3Auth no inicializado");
+        }
+        await this.web3auth.logout();
+    }
+}

@@ -1,0 +1,32 @@
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+export class BifrostManager {
+    private api: ApiPromise | null = null;
+
+    async connect() {
+        const wsProvider = new WsProvider('wss://bifrost-rpc.liebi.com');
+        this.api = await ApiPromise.create({ provider: wsProvider });
+    }
+
+    async stake(account: string, amount: number) {
+        if (!this.api) {
+            throw new Error("API no inicializada");
+        }
+        // Esta es una implementación simplificada. Se necesita ajustarla según la API exacta de Bifrost
+        const txHash = await this.api.tx.vtoken
+            .mint(amount)
+            .signAndSend(account);
+        return txHash;
+    }
+
+    async unstake(account: string, amount: number) {
+        if (!this.api) {
+            throw new Error("API no inicializada");
+        }
+        // Implementación simplificada
+        const txHash = await this.api.tx.vtoken
+            .redeem(amount)
+            .signAndSend(account);
+        return txHash;
+    }
+}

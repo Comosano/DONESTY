@@ -1,0 +1,23 @@
+import { ethers } from 'ethers';
+
+export class MoonbeamManager {
+    private provider: ethers.providers.JsonRpcProvider;
+    private signer: ethers.Signer;
+
+    constructor() {
+        this.provider = new ethers.providers.JsonRpcProvider("https://rpc.api.moonbeam.network");
+        this.signer = new ethers.Wallet("YOUR_PRIVATE_KEY", this.provider);
+    }
+
+    async deployContract(abi: any, bytecode: string, ...args: any[]) {
+        const factory = new ethers.ContractFactory(abi, bytecode, this.signer);
+        const contract = await factory.deploy(...args);
+        await contract.deployed();
+        return contract;
+    }
+
+    async interactWithContract(address: string, abi: any, method: string, ...args: any[]) {
+        const contract = new ethers.Contract(address, abi, this.signer);
+        return await contract[method](...args);
+    }
+}
