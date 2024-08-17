@@ -3,7 +3,7 @@ REPOSITORIO DE DONESTY
 
 Descripción del Proyecto
 Una descripción detallada del proyecto de tu equipo que contenga lo siguiente:
-•	Nombre y resumen del Proyecto (DONESTY, SINCERELLY BETTER) Donesty: Donar con Transparencia e Impacto
+•	Nombre y resumen del Proyecto (DONESTY, SINCERELY BETTER) Donesty: Donar con Transparencia e Impacto
 
 Donesty es una plataforma pionera de web3 que te empodera para hacer donaciones transparentes y eficientes. Hasta ahora, la trazabilidad de las donaciones ha sido un desafío, pero Donesty está aquí para asegurarse de que todos puedan donar de una manera clara e impactante.
 
