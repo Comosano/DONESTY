@@ -8,10 +8,10 @@ Una descripción detallada del proyecto de tu equipo que contenga lo siguiente:
 Donesty es una plataforma pionera de web3 que te empodera para hacer donaciones transparentes y eficientes. Hasta ahora, la trazabilidad de las donaciones ha sido un desafío, pero Donesty está aquí para asegurarse de que todos puedan donar de una manera clara e impactante.
 
 •	Nombres/pseudónimos de los miembros del equipo y la información de contacto (por ejemplo, cuenta de GitHub, dirección de correo electrónico, etc.)
-JUAN CRUZ 
-LEANDRO ACUÑA
-PAULA WEGMAN
-ESTEBAN ROSMAN
+- JUAN CRUZ 
+- LEANDRO ACUÑA
+- PAULA WEGMAN
+- ESTEBAN ROSMAN
 
 •	La categoría de la presentación IMPACTO SOCIAL
 
